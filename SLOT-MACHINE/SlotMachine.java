@@ -15,7 +15,8 @@ public class SlotMachine {
 
         int roundsPlayed = 0;
         int biggestWin = 0;
-        int totalWon = 0,totalLost = 0;
+        int totalWon = 0;
+        int totalLost = 0;
 
 
 //        Welcome Message
@@ -73,10 +74,10 @@ public class SlotMachine {
                 System.out.println("You Lost the Round");
             }
             System.out.println("----------------------------------");
-            System.out.print("Do u Want to play Again (yes/no) :");
+            System.out.print("Do u Want to play Again ? (yes/no) :");
             playAgain = sc.nextLine().toUpperCase();
 
-            if(!playAgain.equals("YES")) {
+            if(!playAgain.equals("YES") ) {
                 finalSummary(roundsPlayed,balance,biggestWin,totalWon,totalLost);
                 break;
             }
@@ -128,7 +129,7 @@ public class SlotMachine {
             };
         }
         else if(row[1].equals(row[2])) {
-            return switch (row[0]) {
+            return switch (row[1]) {
                 case "😵‍💫" -> bet * 4;
                 case "😱" -> bet * 3;
                 case "😵" -> bet * 5;
@@ -141,9 +142,13 @@ public class SlotMachine {
     }
     static int handleBet(Scanner sc, int balance) {
         int bet;
-        System.out.print(" ---> Enter BET Amount : $");
-        bet = sc.nextInt();
-        sc.nextLine();  //Controlling newLine character
+        try {
+            System.out.print(" ---> Enter BET Amount : $");
+            bet = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input! Please enter a number.");
+            return -1;
+        }
 
         if(bet > balance) {
             System.out.println("INSUFFICIENT FUNDS !!");
@@ -157,7 +162,7 @@ public class SlotMachine {
             System.out.println("⚠️ You're betting your entire balance!");
             System.out.print("Are you sure? (yes/no) : ");
             String confirm = sc.nextLine().toUpperCase();
-            if (!confirm.equalsIgnoreCase("YES")) {
+            if (!confirm.equalsIgnoreCase("YES") ) {
                 return -1;
             }
         }
