@@ -1,13 +1,13 @@
 # 🎰 SLOT MACHINE JAVA (CLI)
 
-A command-line slot machine game built in Java — featuring emoji-based reels, betting logic, and a dynamic summary board that tracks your gameplay stats.
+A command-line slot machine game built in Java — featuring emoji-based reels, clean OOP structure, betting logic, and a dynamic summary board that tracks your gameplay stats.
 
 ---
 
 ## 🧠 Features
-- 🎞️ Emoji-based slot reels (`😵‍💫 😵 😱 🥶 🥰`)
+- 🎞️ Emoji-based slot reels (`😵‍💫 😵 😱 🥶 🥰`) managed by a dedicated Java `Enum`.
 - 💸 Betting system with balance tracking
-- ⚠️ All-in confirmation prompt
+- ⚠️ All-in confirmation prompt to prevent accidental large bets.
 - 🎉 Jackpot detection for triple matches
 - 📊 Summary board with:
   - Rounds played
@@ -37,22 +37,34 @@ java brocode.SlotMachine
 ## 📸 Sample Output
 
 ```
-**** Current Balance : $100
- ---> Enter BET Amount : $20
-Spinning...
-   😱 | 🥶 | 😱
-You Won : $80
 ----------------------------------
-Do u Want to play Again ? (yes/no) : NO
+---  Welcome to Java Slot Pro  ---
+    Symbols: 😵‍💫 😱 😵 🥶 🥰 
+----------------------------------
 
-🎮 GAME SUMMARY :
-* Rounds Played: 5
-* Final Balance: $180
-* Biggest Win: $80
-* Total Won: $160
-* Total Lost: $40
-* Status: Lucky Streak!
- ---Thanks for playing 🎉---
+**** Current Balance: $100
+ ---> Enter BET Amount ($1 - $100): $20
+Spinning...
+*******************
+   😱 | 🥶 | 😱
+*******************
+✨ DOUBLE MATCH! (😱) Payout: x4
+✅ YOU WON: $80 (Net: $60)
+----------------------------------
+Do you want to play again? (yes/no) : NO
+
+==============================
+     🎮 FINAL GAME SUMMARY     
+==============================
+* Rounds Played: 1
+* Final Balance: $160
+* Biggest Net Win: $60
+* Total Net Won: $60
+* Total Lost (Stakes): $0
+* Status: Lucky Streak! You finished up.
+------------------------------
+--- Thanks for playing 🎉 ---
+------------------------------
 ```
 
 ---
